@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>angry.png</file>
+    <file>confused (1).png</file>
+    <file>happy.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+1. import file pmtracnghiemSql.sql vào database có tên: TracNghiem.Net
+2. thay đổi chuỗi kết nối trong Data_Tier -> ThiSinhDA.cs và NhanvienDA.cs
+3. chạy chương trình:
+	- phần 1: Quản lý: 
+		  + tài khoản: nv05
+		  + mật khẩu: 1111
+	- phần 2: Thi:
+		  + tài khoản: 1710310046
+		  + mật khẩu: 1111
+4. hiện tại chỉ có môn Mạng Máy Tính là bọn em đã insert đủ các bản ghi để thực hiện kiểm tra ạ. bọn em sẽ bổ sung nhiều câu hỏi vào các bộ môn khác trong thời gian tới!
