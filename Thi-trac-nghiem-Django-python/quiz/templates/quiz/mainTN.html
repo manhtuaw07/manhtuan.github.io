@@ -1,0 +1,221 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>{% trans "Example Quiz Website" %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <link href="{% static 'quiz/stype.css' %}" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-offset="50" >
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:lightgreen">
+    <a class="navbar-brand" >MTC Uneti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if nav == 'about' %}active{% endif %}">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal1" >Giới Thiệu</a>
+            </li>
+             <li class="nav-tem" style="color:gray">
+                <a data-toggle="modal" data-target="#exampleModal1" class="nav-link">Môn học</a>
+            </li>
+            <li class="nav-tem" style="color:gray">
+                <a data-toggle="modal" data-target="#exampleModal1" class="nav-link">Tiến Trình</a>
+            </li>
+          </ul>
+          <form class="form-inline my-3 my-lg-1">
+            <div class="box">
+                     <input type="text" placeholder="Search here" style="color: black;">
+                     <i class="fa fa-search"></i>
+            </div>
+          </form>
+          <div class="navbar-nav ml-4">
+              <li class="nav-item ">
+                {% if user.is_authenticated %}
+                  <div class="row-sm">
+                      <div class="col-sm">
+                          <div class="nav-item dropdown">
+                              <a href="#">
+                                  <button class="fa fa-user fa-sm "> : {{user.last_name}}&nbsp;{{ user.first_name }}</button>
+                              </a>
+                              <div class="dropdown-content">
+                                   <div class="dropdown-divider"></div>
+                                 <a class="dropdown-item" href="/page/"><i class="fa fa-user fa-sm"> Hồ Sơ</i></a>
+                                   <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="/page/"><i class="fa fa-table fa-sm"> Thay đổi mật khẩu</i></a>
+                                   <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="/page/"><i class="fa fa-sign-out fa-sm"> Đăng Xuất</i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                {% else %}
+                    <div class="row">
+                   <div class="col-sm-3">
+                     <i><a class="btn btn-danger" href="/logout/">Đăng Nhập</a></i>
+                    </div>
+                  {% endif %}
+                  </div>
+              </li>
+          </div>
+      </div>
+</nav>
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" >THÔNG BÁO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6>Bạn không thể dùng tính năng này khi đang làm bài kiểm tra!</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--phần thân-->
+<div class="bg1">
+    <div class="container">
+            <div class="row mt-3" style="border: 2px solid black ; width: 100% ;height: 130px;background:darkorange">
+                <div class="col-sm-2"style="border: 2px solid black">
+                    <div class="mt-1">
+                         <div id="square" style="background: #fcf8e3"></div>câu chưa trả lời
+                    </div>
+                   <div class=" mt-1 mb-1">
+                       <div id="square" style="background:red"></div>câu đã trả lời
+                    </div>
+                </div>
+<!--Đồng hồ-->
+                <div class="col-sm"style="border: 2px solid black">
+                    <div id="time">
+                         <script>
+                               var gio = 0;
+                               var phut= 10;
+                               var giay = 1;
+                               function dongho()
+                               {
+                                   giay--;
+                                   if(giay < 10)
+                                     {
+                                       giay = "0" + giay;
+                                     }
+                                    if(giay -1 < 0)
+                                    {
+                                        giay = 59;
+                                        phut--;
+                                        if (phut < 10)
+                                        {
+                                            phut = "0" + phut;
+                                        }
+                                    }
+                        if(phut >= 0) {
+                                     document.getElementById("time").innerHTML ="0"+ gio + ":" + phut + ":" + giay;
+                                     setTimeout("dongho()",1000);
+                                      }
+                                else  {
+                                       document.getElementById("time").innerHTML ="HẾT THỜI GIAN"
+                                       //window.location.href=""
+                                       }
+                               }
+                            dongho();
+                        </script>
+                    </div>
+                </div>
+                <div class="col-sm-2" style="border: 2px solid black" align="center">
+                    <div class="mt-3">
+                        <button type="submit" name="nopbai" class="btn btn-danger">Nộp Bài</button>
+                    </div>
+                    <div class="mt-2">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" >Hủy bài</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" >THÔNG BÁO</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <h6>Bạn muốn hủy bài kiểm tra này?</h6>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-success" data-dismiss="modal">Không</button>
+                                  <a type="button" class="btn btn-danger" href="{% url 'quiz_index' %}">có</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <!--phần thân trắc nghiệm-->
+         <div class="row"style="border: 2px solid black ; width: 100% ;height: 400px;background:darkorange">
+            <div class="col-sm-2"style="border: 2px solid black ">
+             <!--phần hiển thi nút câu hỏi-->
+                <div class="mt-2">
+                    <button type="button" style="width: 150px;height: 30px">câu</button>
+                </div>
+            </div>
+            <div class="col-sm-10"style="background: white">
+               <div>
+                  <!--phần hiển thị câu hoi sau khi bấm nút-->
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#<footer class="page-footer font-small blue pt-4 "style="background: lightgreen">#}
+{##}
+{#  <!-- Footer Links -->#}
+{#  <div class="container-fluid text-center text-md-left">#}
+{#    <div class="row">#}
+{#      <div class="col-md-6 mt-md-0 mt-3">#}
+{#        <h4 class="text-uppercase">Website kiểm tra trắc nghiệm cho sinh viên</h4>#}
+{#         <h5 class="mb-4" style="margin-top: 20px">Nhóm nghiên cứu và phát triển</h5>#}
+{#          <li class="mb-4"><b><u>GVHD</u>:</b> Nguyễn Thu Hiền</li>#}
+{#          <li class="mb-4"><b><u>SV</u>:</b> Hứa Mạnh Tuấn | Bùi Xuân Vĩ | Bùi Thị Hoa Mai</li>#}
+{#      </div>#}
+{#      <hr class="clearfix w-100 d-md-none pb-3">#}
+{#      <div class="col-md-3 mb-md-0 mb-3">#}
+{#        <ul class="list-unstyled">#}
+{#          <li style="margin-top: 25px">#}
+{#            <a href="#!">Trang chủ</a>#}
+{#          </li>#}
+{#          <li style="margin-top: 10px">#}
+{#            <a href="#!">Giới thiệu</a>#}
+{#          </li>#}
+{#          <li style="margin-top: 10px">#}
+{#            <a href="/">Môn thi</a>#}
+{#          </li>#}
+{#        </ul>#}
+{#      </div>#}
+{#      <div class="col-md-3 mb-md-0 mb-3" align="center">#}
+{#          <a  href="http://daotao.uneti.edu.vn/"><img src="data:image/png;base64,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"style="width: 300px;height: 200px"></a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="footer-copyright text-center py-3">© 2020 Copyright:#}
+{#    <a href="/"> MTCUNETI.com</a>#}
+{#  </div>#}
+{#</footer>#}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

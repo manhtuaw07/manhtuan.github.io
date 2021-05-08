@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ <div class="bg1">
+  <div class="container mt-5 mb-5" style="border: 1px solid silver">
+    <div class="color">
+        <h1>Thông tin cá nhân</h1>
+    </div>
+     <div class="row" >
+         <div class="col-sm-2">
+              <img src="https://images.assetsdelivery.com/compings_v2/newdesignillustrations/newdesignillustrations1705/newdesignillustrations170500250.jpg" height="150" width="150">
+         </div>
+         <div class="col-sm-5">
+             <p>Tài khoản:<b> {{user.username}}</b></p>
+              <p>Tên người dùng:<b> {{ user.first_name }}</b> </p>
+              <p>Email: <b>{{user.email}}</b></p>
+              <p>Ngày đăng ký:<b> {{user.date_joined}}</b></p>
+              <P>Lịch sử đăng nhập gần đây:<b> {{ user.last_login }}</b></P>
+               <a href="/Upindex/"><button class="btn btn-primary">Sửa hồ sơ</button></a>
+            </div>
+          <div class="col-sm-5" style="border: black">
+              {% block index2 %}{% endblock %}
+         </div>
+       </div>
+     </div>
+    </div>
+{% endif %}
+{% endblock  %}

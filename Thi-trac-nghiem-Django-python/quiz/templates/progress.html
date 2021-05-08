@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {% trans "Tiến Trình Làm Bài Của Bạn" %} {% endblock %}
+{% block description %} {% trans "Tiến Trình Làm Bài Của Bạn" %} {% endblock %}
+
+{% block content %}
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#customers tr:nth-child(even){background-color: #f2f2f2; }
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+  {% if cat_scores %}
+
+{#  <h1>{% trans "Thành Tích Của Bạn" %}</h1>#}
+
+
+
+<section class="bg1">
+<div class="container" style="margin-top: 20px">
+<div style="width:auto; height:400px; overflow:auto;">
+       <table id="customers" class="table table-bordered table-striped  " >
+
+	<thead>
+	  <tr>
+		<th>{% trans "Môn Thi" %}</th>
+		<th>{% trans "Câu Đúng" %}</th>
+		<th>{% trans "Số Câu Hỏi" %}</th>
+		<th>Điểm </th>
+	  </tr>
+	</thead>
+
+	<tbody>
+
+
+	  {% for cat, value in cat_scores.items %}
+	  <tr>
+		<td>{{ cat }}</td>
+		<td>{{ value.0 }}</td>
+		<td>{{ value.1 }}</td>
+		<td>{{ value.2}}</td>
+	  </tr>
+
+	  {% endfor %}
+
+	</tbody>
+
+  </table>
+</div>
+</div>
+</section>
+  {% endif %}
+
+{#  {% if exams %}#}
+{##}
+{#  <hr>#}
+{##}
+{#  <h1>{% trans "Các Lần Làm Bài Gần Đây" %}</h1>#}
+{#  <p class="lead">#}
+{#	{% trans "Below are the results of exams that you have sat." %}#}
+{#  </p>#}
+{##}
+{#  <table class="table table-bordered table-striped">#}
+{##}
+{#	<thead>#}
+{#	  <tr>#}
+{#		<th>{% trans "Môn Thi" %}</th>#}
+{#		<th>{% trans "Số Câu Đúng" %}</th>#}
+{#		<th>{% trans "Số Câu Sai" %}</th>#}
+{#		<th>%</th>#}
+{#	  </tr>#}
+{#	</thead>#}
+{##}
+{#	<tbody>#}
+{##}
+{#	  {% for exam in exams %}#}
+{##}
+{#	  <tr>#}
+{#		<td>{{ exam.quiz.title }}</td>#}
+{#		<td>{{ exam.current_score }}</td>#}
+{#		<td>{{ exam.get_max_score }}</td>#}
+{#		<td>{{ exam.get_percent_correct }}</td>#}
+{#	  </tr>#}
+{##}
+{#	  {% endfor %}#}
+{##}
+{#	</tbody>#}
+{##}
+{#  </table>#}
+{##}
+{#  {% endif %}#}
+
+
+{% endblock %}

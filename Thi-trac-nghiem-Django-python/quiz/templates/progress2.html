@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load quiz_tags %}
+
+{% block title %} {% trans "Progress Page" %} {% endblock %}
+{% block description %} {% trans "User Progress Page" %} {% endblock %}
+
+{% block progress %}
+
+<section class="bg1">
+<div class="container">
+{% if not user.username %}
+ 
+  <hr>
+  <div>
+  <h1>{% trans "Lịch Sử Làm Bài Của Bạn" %}</h1>
+  </div>
+    <h4 style="color:red;">Không có dữ liệu người dùng!  Yêu cầu bạn <a href="/logout/"> Đăng nhập</a> hoặc <a href="/login/">Đăng ký</a> tài khoản.</h4>
+{% endif %}
+</div>
+</section>
+{% endblock %}

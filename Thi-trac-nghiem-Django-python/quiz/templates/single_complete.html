@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title }} {% endblock %}
+{% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+  <h5>{% trans "&nbsp&nbspBạn chỉ có thể làm bài thi này 1 lần. Xem kết quả trong phần tiến trình của bạn!" %}</h5>
+{% else %}
+  <p>{% trans "Bài kiểm tra này chỉ có thể truy cập đối với người dùng đã đăng nhập" %}.</p>
+{% endif %}
+
+{% endblock %}

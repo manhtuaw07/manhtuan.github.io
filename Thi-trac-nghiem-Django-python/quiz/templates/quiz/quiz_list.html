@@ -1,0 +1,201 @@
+{% load i18n %}
+{% load quiz_tags %}
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>{% trans "Example Quiz Website" %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <link href="{% static 'quiz/stype.css' %}" rel="stylesheet">
+</head>
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+
+}
+</style>
+
+
+<body data-spy="scroll" data-offset="50" >
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:lightgreen">
+  <img class="card-img-left" src={% static "mtc.png" %} width="80px" height="60px">
+    <a class="navbar-brand" href="/">MTC Uneti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div id = "customers" class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul  class="navbar-nav mr-auto">
+            <li class="nav-item {% if nav == 'about' %}active{% endif %}">
+                <a class="nav-link" href="/about/" >Giới Thiệu</a>
+            </li>
+             <li class="nav-tem" style="color:gray">
+                <a href="{% url 'quiz_index' %}" class="nav-link">Môn Thi</a>
+            </li>
+            <li class="nav-tem" style="color:gray">
+                <a href="{% url 'quiz_progress' %}" class="nav-link">Tiến Trình</a>
+            </li>
+          </ul>
+          <form method="POST" action="/search/" class="form-inline my-2 my-lg-0">
+              {% csrf_token %}
+          <input name="srh" class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm môn thi" aria-label="Search">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+           </form>
+          <div  class="navbar-nav ml-4">
+              <li class="nav-item ">
+                {% if user.is_authenticated %}
+                  <div class="row-sm">
+                      <div class="col-sm">
+                          <div class="nav-item dropdown">
+                              <a href="#">
+                                  <button class="fa fa-user fa-sm ">  {{user.last_name}}&nbsp;{{ user.first_name }}</button>
+                              </a>
+                              <div class="dropdown-content">
+                                   <div class="dropdown-divider"></div>
+                                 <a class="dropdown-item" href="/index/"><i class="fa fa-user fa-sm">  Hồ Sơ</i></a>
+                                   <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="/Change_password/"><i class="fa fa-key fa-sm"> Đổi mật khẩu</i></a>
+                                   <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="/logout/"><i class="fa fa-sign-out fa-sm">  Đăng Xuất</i></a>
+                                  <div class="dropdown-divider"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                {% else %}
+                    <div class="row">
+                   <div class="col-sm-3">
+                     <i><a class="btn btn-danger" href="/logout/">Đăng Nhập</a></i>
+                    </div>
+                  {% endif %}
+                  </div>
+              </li>
+          </div>
+      </div>
+</nav>
+<!--phân thân-->
+<div class="bg1">
+   {#<h2>{% trans "Danh ss" %}</h2>#}
+{#    {% if quiz_list %}#}
+{#		<table class="table table-bordered table-striped">#}
+{##}
+{#		  <thead>#}
+{#			<tr>#}
+{#			  <th>{% trans "Title" %}</th>#}
+{#			  <th>{% trans "Category" %}</th>#}
+{#			  <th>{% trans "Exam" %}</th>#}
+{#			  <th>{% trans "Single attempt" %}</th>#}
+{#			  <th></th>#}
+{#			</tr>#}
+{#		  </thead>#}
+{##}
+{#		  <tbody>#}
+{##}
+{#        {% for quiz in quiz_list %}#}
+{##}
+{#  			<tr>#}
+{#			  <td>{{ quiz.title }}</td>#}
+{#			  <td>{{ quiz.category }}</td>#}
+{#			  <td>{{ quiz.exam_paper }}</td>#}
+{#			  <td>{{ quiz.single_attempt }}</td>#}
+{#			  <td>#}
+{#				<a href="{% url 'quiz_start_page' slug=quiz.url %}">#}
+{#				  {% trans "View details" %}#}
+{#				</a>#}
+{#			</tr>#}
+{##}
+{#        {% endfor %}#}
+{#		  </tbody>#}
+{##}
+{#		</table>#}
+<div id = "customers"  class="container">
+  <div class="row mt-3">
+        <h2 style="color:black"  class="list-product-title" align="center"> Danh Sách Các Môn</h2>
+          {% for quiz in quiz_list %}
+        <div class="group-product" align="center">
+            <div class="row ml-1 mr-30 mt-4" align="center">
+              <div class="col md- col sm-6 col-12" align="center">
+{#              <div class="card border-warning ow ml-1 mr-30 mt-2" >#}
+                <div class="card card-product mb-10" align="center">
+                  <img class="card-img-top" src="https://giaovienvietnam.com/hinh-anh-tieng-anh/wp-content/uploads/2018/01/hinh-anh-tieng-anh-cho-tre-chu-de-truong-hoc-va-mon-hoc16.jpg" width="50px" height="80px" alt="Card image cap">
+                  <div class="card-body" align="center">
+                    <h5  class="card-title">Môn thi: <strong>{{ quiz.title }}</strong></h5>
+                    <p class="card-text"></p>
+                    {% if user.username %}
+                        <a  class="btn btn-danger" href="{% url 'quiz_question' quiz_name=quiz.url %}">Kiểm Tra</a>
+                    {% else %}
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Kiểm Tra</button>
+                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" >THÔNG BÁO</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <h6>Yêu cầu bạn đăng nhập tài khoản để sử dụng tính năng này</h6>
+                              </div>
+                              <div class="modal-footer">
+                                  <a type="button" class="btn btn-danger" href="/logout/">Đăng nhập</a>
+                                  <button type="button" class="btn btn-success" data-dismiss="modal">Thoát</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    {% endif %}
+                  </div>
+{#                </div>#}
+              </div>
+              </div>
+            </div>
+        </div>
+          {% endfor %}
+  </div>
+</div>
+
+{#	{% else %}#}
+{#        <p>{% trans "There are no available quizzes" %}.</p>#}
+{#    {% endif %}#}
+
+</div>
+
+<!--footer-->
+<footer class="page-footer font-small blue pt-1"style="background: lightgreen">
+  <div class="footer-copyright text-center py-1">© 2020 Copyright:
+    <a href="/"> MTCUNETI.com</a>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
