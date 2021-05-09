@@ -3,36 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/XoaHoadon.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Models/clsHoadon.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/QL_Hoadon.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/menu_tren.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/CSS_Home/Menu.css</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/DoiTTHD.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/WEB-INF/glassfish-web.xml</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Models/clsSanpham.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/QL_Sanpham.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/CSS_Admin/Style.css</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Home/banner.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/cart_update.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/HD_Xoa.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/index_admin.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/HD_Chitiet.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/QL_NhomSP.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/banner.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/cart_checkout.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/Trangchu.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/index.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/footer.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/CSS_Admin/Menu.css</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/cart_del.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Home/ChitietSP.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/web/Admin/HD_Danhsach.jsp</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Controlers/cart_add.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Models/clsChitietHoadon.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Tienich/Dungchung.java</file>
-            <file>file:/C:/Users/manht/OneDrive/Desktop/Web_04_11_2020_NguyenMinhQuang/Web_04_11_2020_NguyenMinhQuang/Web_Shop/src/java/Models/clsNhomSP.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/CSDL/tbSanpham.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/web/Admin/QL_Hoadon.jsp</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/web/Admin/QL_Sanpham.jsp</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/Models/clsSanpham.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/Controlers/XoaHoadon.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/web/META-INF/context.xml</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/CSDL/Database.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/Controlers/cart_update.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/web/Admin/HD_Danhsach.jsp</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/Controlers/cart_add.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/src/java/Controlers/DoiTTHD.java</file>
+            <file>file:/E:/GIT/Clone/manhtuan.github.io/Web_Shop(JSP,JDBC)/Web_Shop(JSP,JDBC)/Web_Shop/web/index_admin.jsp</file>
         </group>
     </open-files>
 </project-private>
